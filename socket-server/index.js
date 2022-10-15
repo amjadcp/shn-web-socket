@@ -1,3 +1,5 @@
+const connectDB = require("./utils/connectDB");
+connectDB('mongodb+srv://calicut:dEF1MLUDhj8mCYQA@boringbots-2v.auedc.mongodb.net/shn');
 const io = require('socket.io')(5000, {
     cors: {
         origin: [
