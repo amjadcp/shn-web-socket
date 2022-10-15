@@ -8,7 +8,7 @@ const connectDB = require("./utils/connectDB");
 const { createUser } = require("./controllers/createUser");
 connectDB();
 
-const whitelist = ["http://127.0.0.1:3000", "localhost", "http://localhost:3000", "https://main.dv966lilhc413.amplifyapp.com"];
+const whitelist = [''];
 
 app.set("trust proxy", 1); // trust first proxy
 
@@ -20,14 +20,14 @@ const corsOptions = {
 		}
 		if (whitelist.indexOf(origin) !== -1) {
 			callback(null, true);
-		} else {
+			corsOptions} else {
 			callback(new Error("Not allowed by CORS"));
 		}
 	},
 	credentials: true,
 };
 
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.json({
 	type: ["application/json", "text/plain"],
 }));
