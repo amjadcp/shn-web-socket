@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 dotenv.config({ path: path.join(__dirname, `/.env`) });
 const cors = require("cors")
 const connectDB = require("./utils/connectDB");
+const { createUser } = require("./controllers/createUser");
 connectDB();
 
 const whitelist = ["http://127.0.0.1:3000", "localhost", "http://localhost:3000", "https://main.dv966lilhc413.amplifyapp.com"];
@@ -30,5 +31,9 @@ app.use(cors(corsOptions));
 app.use(express.json({
 	type: ["application/json", "text/plain"],
 }));
+
+// routers
+app.post('/api/v1/user', createUser)
+
 
 app.listen(process.env.PORT, () => console.log("Server Running on " + `${process.env.PORT}`));
