@@ -4,3 +4,6 @@ const socket = io('http://127.0.0.1:5000', { query: "userId=634ad853cbb10a6090c8
 socket.on("connect", ()=>{
     console.log(socket.id);
 })
+socket.on("notify", (message)=>{
+    console.log('------------->', message);
+})
