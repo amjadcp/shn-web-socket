@@ -6,6 +6,7 @@ dotenv.config({ path: path.join(__dirname, `/.env`) });
 const cors = require("cors")
 const connectDB = require("./utils/connectDB");
 const { createUser } = require("./controllers/createUser");
+const { createNotify } = require("./controllers/createNotify");
 connectDB();
 
 const whitelist = [''];
@@ -34,6 +35,7 @@ app.use(express.json({
 
 // routers
 app.post('/api/v1/user', createUser)
+app.post('/api/v1/notify', createNotify)
 
 
 app.listen(process.env.PORT, () => console.log("Server Running on " + `${process.env.PORT}`));
