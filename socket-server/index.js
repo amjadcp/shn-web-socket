@@ -10,5 +10,7 @@ const io = require('socket.io')(5000, {
 })
 
 io.on("connection", socket=>{
+    const handshakeData = socket.request;
+    console.log("middleware:", handshakeData._query['userId']);
     console.log(socket.id);
 })
