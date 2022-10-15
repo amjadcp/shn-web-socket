@@ -1,1 +1,0 @@
-This folder for socket-server with socket.io
