@@ -9,24 +9,8 @@ const { createUser } = require("./controllers/createUser");
 const { createNotify } = require("./controllers/createNotify");
 connectDB();
 
-const whitelist = [''];
-
 app.set("trust proxy", 1); // trust first proxy
 
-const corsOptions = {
-	// eslint-disable-next-line consistent-return
-	origin(origin, callback) {
-		if (!origin) { // for mobile app and postman client
-			return callback(null, true);
-		}
-		if (whitelist.indexOf(origin) !== -1) {
-			callback(null, true);
-			corsOptions} else {
-			callback(new Error("Not allowed by CORS"));
-		}
-	},
-	credentials: true,
-};
 
 app.use(cors());
 app.use(express.json({
